@@ -57,10 +57,6 @@
       <tbody id="notesTableBody"></tbody>
     </table>
   </div>
-  <div class="export-instructions mt-2">
-    <b>Export/Import:</b> Download your notes as a JSON file. To email them to yourself (e.g., Gmail), export, then attach the file to your email. To import notes, use the Import button and select a previously saved notes file.
-  </div>
-</div>
 
 <!-- Modal for Add/Edit Note -->
 <div class="modal fade" id="noteModal" tabindex="-1" aria-labelledby="noteModalLabel" aria-hidden="true">
@@ -76,10 +72,22 @@
           <label for="noteName" class="form-label">Name</label>
           <input type="text" class="form-control" id="noteName" required maxlength="60">
         </div>
-   
-     
-      
-     
+        <div class="mb-2">
+          <label for="noteUsername" class="form-label">User Name</label>
+          <input type="text" class="form-control" id="noteUsername" maxlength="60">
+        </div>
+        <div class="mb-2">
+          <label for="notePassword" class="form-label">Password</label>
+          <input type="text" class="form-control" id="notePassword" maxlength="60">
+        </div>
+        <div class="mb-2">
+          <label for="noteKey" class="form-label">Key</label>
+          <input type="text" class="form-control" id="noteKey" maxlength="60">
+        </div>
+        <div class="mb-2">
+          <label for="noteText" class="form-label">Notes</label>
+          <textarea class="form-control" id="noteText" rows="4" maxlength="1200"></textarea>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-primary"><i class="bi bi-save"></i> Save</button>
@@ -126,10 +134,7 @@ function renderNotes() {
       row.innerHTML = `
         <td>${date}</td>
         <td>${escapeHTML(note.name)}</td>
-        <td>${escapeHTML(note.username)}</td>
-        <td>${escapeHTML(note.password)}</td>
-        <td>${escapeHTML(note.key)}</td>
-        <td>${escapeHTML(note.text)}</td>
+      
         <td>
           <button class="btn btn-sm btn-primary btn-icon me-1" title="Edit" onclick="showEditNoteModal(${note.id});event.stopPropagation();"><i class="bi bi-pencil"></i></button>
           <button class="btn btn-sm btn-danger btn-icon" title="Delete" onclick="deleteNote(${note.id});event.stopPropagation();"><i class="bi bi-trash"></i></button>
